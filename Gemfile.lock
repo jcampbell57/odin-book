@@ -237,6 +237,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.8)
+  responders
   selenium-webdriver
   sprockets-rails
   stimulus-rails
