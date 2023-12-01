@@ -1,7 +1,33 @@
-<li>
-  <p><%= post.body %></p>
-  
-  <% if user_signed_in? %>
-  <b><p><%= post.user.display_name %></p></b>
-  <% end %>
-</li>
+<%# Need to figure out the appropriate location to save styling %>
+<style>
+  .text-secondary:hover {
+    color: grey !important;
+  }
+
+  .text-secondary:active {
+    color: black !important;
+  }
+</style>
+
+
+<div class = 'card'>
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills">
+      <li class="nav-item">
+        <b><a class="nav-link text-secondary" href="#"><%= post.user.display_name %></a></b>
+      </li>
+    </ul>
+  </div>
+  <div class = 'card-body'>
+    <p><%= post.body %></p>
+    
+    <% if user_signed_in? %>
+      <div>
+        <button type="button" class="btn btn-outline-secondary btn-sm">Like</button>
+        <button type="button" class="btn btn-outline-secondary btn-sm">Comment</button>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<br>
