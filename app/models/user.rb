@@ -31,4 +31,28 @@ class User < ApplicationRecord
   has_many :pending_requests_received, -> { merge(Friendship.not_friends) },
            through: :recieved_friend_requests, source: :sent_by
   # END FRIENDSHIP ASSOCIATIONS
+
+  # Returns all posts from this user's friends and self
+  def friends_and_own_posts
+    # myfriends = friends
+    our_posts = []
+    # myfriends.each do |f|
+    friends.each do |f|
+      f.posts.each do |p|
+        our_posts << p
+      end
+    end
+    posts.each do |p|
+      our_posts << p
+    end
+    our_posts
+    # our_posts.order('created_at desc')
+  end
+
+  private
+
+  # Validates the size of an uploaded picture.
+  def picture_size
+    errors.add(:image, 'should be less than 1MB') if image.size > 1.megabytes
+  end
 end
