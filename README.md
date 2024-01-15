@@ -5,6 +5,8 @@ application up and running.
 
 Things you may want to cover:
 
+this project was not generated correctly
+
 * Ruby version
 
 * System dependencies
